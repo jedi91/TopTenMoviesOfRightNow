@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,10 +98,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MovieSearch.ascx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\TopTenMoviesOfRightNow20170906103839 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -106,10 +112,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TopTenMovies.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieSearch.ascx.cs">
+      <DependentUpon>MovieSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MovieSearch.ascx.designer.cs">
+      <DependentUpon>MovieSearch.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheMovieDB\ApiResponse\ErrorResponse.cs" />
+    <Compile Include="TheMovieDB\ApiResponse\IApiResponse.cs" />
+    <Compile Include="TheMovieDB\ApiResponse\SearchResponse.cs" />
+    <Compile Include="TheMovieDB\Movie.cs" />
+    <Compile Include="TheMovieDB\MovieDB.cs" />
+    <Compile Include="TopTenMovies.aspx.cs">
+      <DependentUpon>TopTenMovies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopTenMovies.aspx.designer.cs">
+      <DependentUpon>TopTenMovies.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
