@@ -37,6 +37,15 @@ namespace TopTenMoviesOfRightNow {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TopTenMoviesOfRightNow.MovieSearch movieSearch;
+        protected global::TopTenMoviesOfRightNow.Controls.MovieSearch movieSearch;
+        
+        /// <summary>
+        /// usersTopTenMovies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TopTenMoviesOfRightNow.Controls.UsersTopTenMovies usersTopTenMovies;
     }
 }

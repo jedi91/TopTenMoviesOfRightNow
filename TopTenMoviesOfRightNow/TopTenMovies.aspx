@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TopTenMovies.aspx.cs" Inherits="TopTenMoviesOfRightNow.TopTenMovies" %>
-<%@ Register TagPrefix="ttm" TagName="MovieSearch" Src="~/MovieSearch.ascx" %>
+<%@ Register TagPrefix="ttm" TagName="MovieSearch" Src="~/Controls/MovieSearch.ascx" %>
+<%@ Register TagPrefix="ttm" TagName="UsersTopTenMovies" Src="~/Controls/UsersTopTenMovies.ascx" %>
 
 <!DOCTYPE html>
 
@@ -15,6 +16,7 @@
     </div>
     <div>
         <ttm:MovieSearch runat="server" id="movieSearch"></ttm:MovieSearch>
+        <ttm:UsersTopTenMovies runat="server" ID="usersTopTenMovies" />
     </div>
     </form>
 </body>

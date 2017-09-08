@@ -20,11 +20,6 @@ namespace TopTenMoviesOfRightNow.TheMovieDB
             movieDBUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
         }
 
-        public List<Movie> Search(string query)
-        {
-            return GetPage(query, 1);
-        }
-
         public List<Movie> GetPage(string query, int page)
         {
             SearchResponse apiResponse = GetApiResponse(query, page);
@@ -51,7 +46,8 @@ namespace TopTenMoviesOfRightNow.TheMovieDB
             }
             catch(Exception ex)
             {
-                //Redirect to error page
+                //WIP
+                //Next Step: Retrieve the ErrorResponse and pass it/redirect to error page.
                 return null;
             }
         }

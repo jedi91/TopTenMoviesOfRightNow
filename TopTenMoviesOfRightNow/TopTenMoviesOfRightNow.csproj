@@ -98,7 +98,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MovieSearch.ascx" />
+    <Content Include="Controls\MovieSearch.ascx" />
+    <Content Include="Controls\UsersTopTenMovies.ascx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -116,16 +117,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MovieSearch.ascx.cs">
+    <Compile Include="Controls\MovieSearch.ascx.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MovieSearch.ascx.designer.cs">
+    <Compile Include="Controls\MovieSearch.ascx.designer.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UsersTopTenMovies.ascx.cs">
+      <DependentUpon>UsersTopTenMovies.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UsersTopTenMovies.ascx.designer.cs">
+      <DependentUpon>UsersTopTenMovies.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheMovieDB\ApiResponse\ErrorResponse.cs" />
-    <Compile Include="TheMovieDB\ApiResponse\IApiResponse.cs" />
     <Compile Include="TheMovieDB\ApiResponse\SearchResponse.cs" />
     <Compile Include="TheMovieDB\Movie.cs" />
     <Compile Include="TheMovieDB\MovieDB.cs" />
