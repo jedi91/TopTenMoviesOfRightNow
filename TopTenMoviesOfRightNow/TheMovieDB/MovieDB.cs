@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Net;
 using Newtonsoft.Json;
@@ -11,15 +10,6 @@ namespace TopTenMoviesOfRightNow.TheMovieDB
 {
     public class MovieDB
     {
-        private string apiKey;
-        private string movieDBUrl;
-
-        public MovieDB()
-        {
-            apiKey = "a2ce2e1eb4f3813cb99430c7c220a627";
-            movieDBUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
-        }
-
         public List<Movie> GetPage(string query, int page)
         {
             SearchResponse apiResponse = GetApiResponse(query, page);
@@ -56,7 +46,7 @@ namespace TopTenMoviesOfRightNow.TheMovieDB
         {
             query = HttpUtility.UrlEncode(query);
             string requestUrl = string.Format("{0}{1}&language=en-US&query={2}&page={3}&include_adult=false", 
-                                                movieDBUrl, apiKey, query, page.ToString());
+                                                AppSettings.SearchUrl, AppSettings.MovieDatabaseApiKey, query, page.ToString());
             return requestUrl;
         }
 
