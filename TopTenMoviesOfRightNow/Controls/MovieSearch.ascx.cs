@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-using TopTenMoviesOfRightNow.TheMovieDB;
-
-namespace TopTenMoviesOfRightNow.Controls
+﻿namespace TopTenMoviesOfRightNow.Controls
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.UI.WebControls;
+
+    using TheMovieDB;
+
     public partial class MovieSearch : System.Web.UI.UserControl
     {
         public event EventHandler AddMoviesToList;
@@ -17,24 +14,17 @@ namespace TopTenMoviesOfRightNow.Controls
         {
             get
             {
-                List<Movie> selectedMovies = new List<Movie>();
-                if (Session["SelectedMovies"] != null)
-                {
-                    selectedMovies = (List<Movie>)Session["SelectedMovies"];            
-                }
+                List<Movie> selectedMovies = AppSession.Current.SelectedMovies;
 
-                List<Movie> currentPage = (List<Movie>)Session["CurrentPageList"];
+                List<Movie> currentSearchPage = AppSession.Current.CurrentSearchPage;
                 foreach (RepeaterItem item in movieSearchResults.Items)
                 {
                     CheckBox checkBox = (CheckBox)item.FindControl("ckbChooseMovie");
-                    if (checkBox.Checked)
+                    if (checkBox.Checked && !selectedMovies.Contains(currentSearchPage[item.ItemIndex]))
                     {
-                        if(!selectedMovies.Contains(currentPage[item.ItemIndex]))
-                            selectedMovies.Add(currentPage[item.ItemIndex]);
+                        selectedMovies.Add(currentSearchPage[item.ItemIndex]);
                     }
                 }
-
-                Session["SelectedMovies"] = selectedMovies;
 
                 return selectedMovies;
             }
@@ -42,8 +32,8 @@ namespace TopTenMoviesOfRightNow.Controls
 
         private int CurrentPageNumber
         {
-            get { return (int)Session["currentPage"]; }
-            set { Session["currentPage"] = value; }
+            get { return AppSession.Current.CurrentPage; }
+            set { AppSession.Current.CurrentPage = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -97,7 +87,7 @@ namespace TopTenMoviesOfRightNow.Controls
         {
             MovieDB movieDBApi = new MovieDB();
             List<Movie> currentPage = movieDBApi.GetPage(txbMovieSearch.Text, page);
-            Session["CurrentPageList"] = currentPage;
+            AppSession.Current.CurrentSearchPage = currentPage;
             movieSearchResults.DataSource = currentPage;
             movieSearchResults.DataBind();
         }

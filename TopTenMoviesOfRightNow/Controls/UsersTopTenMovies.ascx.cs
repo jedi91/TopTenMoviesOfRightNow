@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,11 +7,10 @@ using TopTenMoviesOfRightNow.TheMovieDB;
 
 namespace TopTenMoviesOfRightNow.Controls
 {
-    public partial class UsersTopTenMovies : System.Web.UI.UserControl
+    public partial class UsersTopTenMovies : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSubmitTopTen_Click(object sender, EventArgs e)
@@ -39,7 +36,7 @@ namespace TopTenMoviesOfRightNow.Controls
 
         private void RemoveMovieByTitle(string title)
         {
-            List<Movie> selectedMovies = (List<Movie>)Session["SelectedMovies"];
+            List<Movie> selectedMovies = AppSession.Current.SelectedMovies;
             List<Movie> tempList = new List<Movie>();
 
             foreach (Movie movie in selectedMovies)
@@ -48,7 +45,7 @@ namespace TopTenMoviesOfRightNow.Controls
                     tempList.Add(movie);
             }
 
-            Session["SelectedMovies"] = tempList;
+            AppSession.Current.SelectedMovies = tempList;
             rptTopTenMovies.DataSource = tempList;
             rptTopTenMovies.DataBind();
         }
