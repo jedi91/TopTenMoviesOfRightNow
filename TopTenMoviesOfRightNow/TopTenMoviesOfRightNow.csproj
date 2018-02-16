@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="TheMovieDB\SearchRequest.cs" />
     <Compile Include="TheMovieDB\SearchPage.cs" />
     <Compile Include="UserControls\MovieSearch.ascx.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
