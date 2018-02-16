@@ -7,8 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TopTenMoviesOfRightNow.Controls
-{
+namespace TopTenMoviesOfRightNow.UserControls {
     
     
     public partial class MovieSearch {

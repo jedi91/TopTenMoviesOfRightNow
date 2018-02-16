@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UsersTopTenMovies.ascx.cs" Inherits="TopTenMoviesOfRightNow.Controls.UsersTopTenMovies" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UsersTopTenMovies.ascx.cs" Inherits="TopTenMoviesOfRightNow.UserControls.UsersTopTenMovies" %>
 <asp:Repeater ID="rptTopTenMovies" runat="server">
     <HeaderTemplate>
         <table>

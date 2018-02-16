@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TopTenMovies.aspx.cs" Inherits="TopTenMoviesOfRightNow.TopTenMovies" %>
-<%@ Register TagPrefix="ttm" TagName="MovieSearch" Src="~/Controls/MovieSearch.ascx" %>
-<%@ Register TagPrefix="ttm" TagName="UsersTopTenMovies" Src="~/Controls/UsersTopTenMovies.ascx" %>
+<%@ Register TagPrefix="ttm" TagName="MovieSearch" Src="~/UserControls/MovieSearch.ascx" %>
+<%@ Register TagPrefix="ttm" TagName="UsersTopTenMovies" Src="~/UserControls/UsersTopTenMovies.ascx" %>
 
 <!DOCTYPE html>
 

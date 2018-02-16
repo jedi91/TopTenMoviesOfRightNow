@@ -98,8 +98,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Controls\MovieSearch.ascx" />
-    <Content Include="Controls\UsersTopTenMovies.ascx" />
+    <Content Include="UserControls\MovieSearch.ascx" />
+    <Content Include="UserControls\UsersTopTenMovies.ascx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -118,18 +118,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Controls\MovieSearch.ascx.cs">
+    <Compile Include="TheMovieDB\SearchPage.cs" />
+    <Compile Include="UserControls\MovieSearch.ascx.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\MovieSearch.ascx.designer.cs">
+    <Compile Include="UserControls\MovieSearch.ascx.designer.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\UsersTopTenMovies.ascx.cs">
+    <Compile Include="UserControls\UsersTopTenMovies.ascx.cs">
       <DependentUpon>UsersTopTenMovies.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\UsersTopTenMovies.ascx.designer.cs">
+    <Compile Include="UserControls\UsersTopTenMovies.ascx.designer.cs">
       <DependentUpon>UsersTopTenMovies.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppSession.cs" />
@@ -137,7 +138,6 @@
     <Compile Include="TheMovieDB\ApiResponse\ErrorResponse.cs" />
     <Compile Include="TheMovieDB\ApiResponse\SearchResponse.cs" />
     <Compile Include="TheMovieDB\Movie.cs" />
-    <Compile Include="TheMovieDB\MovieDB.cs" />
     <Compile Include="TopTenMovies.aspx.cs">
       <DependentUpon>TopTenMovies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

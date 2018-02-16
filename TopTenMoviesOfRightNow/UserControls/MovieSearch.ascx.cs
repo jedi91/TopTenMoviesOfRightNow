@@ -1,4 +1,4 @@
-﻿namespace TopTenMoviesOfRightNow.Controls
+﻿namespace TopTenMoviesOfRightNow.UserControls
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +9,8 @@
     public partial class MovieSearch : System.Web.UI.UserControl
     {
         public event EventHandler AddMoviesToList;
+
+        private SearchPage currentPage; 
 
         public List<Movie> SelectedMovies
         {
@@ -85,11 +87,8 @@
 
         private void LoadPage(int page)
         {
-            MovieDB movieDBApi = new MovieDB();
-            List<Movie> currentPage = movieDBApi.GetPage(txbMovieSearch.Text, page);
-            AppSession.Current.CurrentSearchPage = currentPage;
-            movieSearchResults.DataSource = currentPage;
-            movieSearchResults.DataBind();
+            currentPage = new SearchPage(txbMovieSearch.Text, page);
+            currentPage.Load(movieSearchResults);
         }
 
         protected void btnAddToList_Click(object sender, EventArgs e)

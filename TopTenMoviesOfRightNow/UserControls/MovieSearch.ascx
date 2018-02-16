@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MovieSearch.ascx.cs" Inherits="TopTenMoviesOfRightNow.Controls.MovieSearch" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MovieSearch.ascx.cs" Inherits="TopTenMoviesOfRightNow.UserControls.MovieSearch" %>
 
 <table>
     <tr>

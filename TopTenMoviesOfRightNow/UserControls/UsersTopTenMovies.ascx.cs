@@ -5,7 +5,7 @@ using System.Web.UI.WebControls;
 
 using TopTenMoviesOfRightNow.TheMovieDB;
 
-namespace TopTenMoviesOfRightNow.Controls
+namespace TopTenMoviesOfRightNow.UserControls
 {
     public partial class UsersTopTenMovies : UserControl
     {
