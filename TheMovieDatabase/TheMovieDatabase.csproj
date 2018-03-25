@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\Movie\MovieRequest.cs" />
     <Compile Include="Search\Movie\MovieSearch.cs" />
     <Compile Include="Search\Movie\MovieResponse.cs" />
   </ItemGroup>

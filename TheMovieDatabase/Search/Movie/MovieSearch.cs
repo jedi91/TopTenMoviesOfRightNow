@@ -6,31 +6,62 @@ namespace TheMovieDatabase.Search.Movie
 {
     public class MovieSearch
     {
-        private string response;
+        private string responseString;
+        private MovieRequest request;
+        private MovieResponse response;
 
-        public MovieSearch()
-        {           
+        public MovieSearch(MovieRequest request)
+        {
+            this.request = request;
+            DownloadResponse();
         }
 
-        public MovieResponse Send(string url)
+        public MovieResponse CurrentPage()
+        {
+            return response;
+        }
+
+        public MovieResponse NextPage()
+        {
+            if (request.Page < response.total_pages)
+            {
+                request.Page++;
+            }
+
+            DownloadResponse();
+            return response;
+        }
+
+        public MovieResponse PreviousPage()
+        {
+            if (request.Page > 1)
+            {
+                request.Page--;
+            }
+
+            DownloadResponse();
+            return response;
+        }
+
+        private void DownloadResponse()
         {
             using (WebClient client = new WebClient())
             {
-                response = client.DownloadString(url);
+                responseString = client.DownloadString(request.RequestUrl());
             }
 
-            return DeserializeResponse();
+            DeserializeResponse();
         }
 
-        private MovieResponse DeserializeResponse()
+        private void DeserializeResponse()
         {
             try
             {
-                return JsonConvert.DeserializeObject<MovieResponse>(response);
+                response = JsonConvert.DeserializeObject<MovieResponse>(responseString);
             }
             catch (Exception ex)
             {
-                return new MovieResponse();
+                response = new MovieResponse();
             }
         }
     }

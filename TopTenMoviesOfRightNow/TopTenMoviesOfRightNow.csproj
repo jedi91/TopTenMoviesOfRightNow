@@ -118,7 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="Utility\PageLoader.cs" />
     <Compile Include="UserControls\MovieSearch.ascx.cs">
       <DependentUpon>MovieSearch.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

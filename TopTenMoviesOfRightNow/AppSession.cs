@@ -10,6 +10,7 @@ namespace TopTenMoviesOfRightNow
         private int currentPage;
         private List<Movie> selectedMovies;
         private List<Movie> currentSearchPage;
+        private MovieSearch currentSearch;
 
         private AppSession()
         {
@@ -33,19 +34,6 @@ namespace TopTenMoviesOfRightNow
             }
         }
 
-        public int CurrentPage
-        {
-            get
-            {
-                return currentPage;
-            }
-
-            set
-            {
-                currentPage = value;
-            }
-        }
-
         public List<Movie> SelectedMovies
         {
             get
@@ -59,16 +47,15 @@ namespace TopTenMoviesOfRightNow
             }
         }
 
-        public List<Movie> CurrentSearchPage
+        public MovieSearch CurrentSearch
         {
             get
             {
-                return currentSearchPage;
+                return currentSearch;
             }
-
             set
             {
-                currentSearchPage = value;
+                currentSearch = value;
             }
         }
     }
