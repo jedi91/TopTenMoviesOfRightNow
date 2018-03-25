@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using TopTenMoviesOfRightNow.TheMovieDB;
+using TheMovieDatabase.Search.Movie;
 
 namespace TopTenMoviesOfRightNow.UserControls
 {
@@ -41,7 +41,7 @@ namespace TopTenMoviesOfRightNow.UserControls
 
             foreach (Movie movie in selectedMovies)
             {
-                if (movie.Title != title)
+                if (movie.title != title)
                     tempList.Add(movie);
             }
 

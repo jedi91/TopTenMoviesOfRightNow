@@ -5,12 +5,13 @@
     using System.Web.UI.WebControls;
 
     using TheMovieDB;
+    using TheMovieDatabase.Search.Movie;
 
     public partial class MovieSearch : System.Web.UI.UserControl
     {
         public event EventHandler AddMoviesToList;
 
-        private SearchPage currentPage; 
+        private PageLoader currentPage;
 
         public List<Movie> SelectedMovies
         {
@@ -18,13 +19,12 @@
             {
                 List<Movie> selectedMovies = AppSession.Current.SelectedMovies;
 
-                List<Movie> currentSearchPage = AppSession.Current.CurrentSearchPage;
                 foreach (RepeaterItem item in movieSearchResults.Items)
                 {
                     CheckBox checkBox = (CheckBox)item.FindControl("ckbChooseMovie");
-                    if (checkBox.Checked && !selectedMovies.Contains(currentSearchPage[item.ItemIndex]))
+                    if (checkBox.Checked && !selectedMovies.Contains(CurrentSearchPage[item.ItemIndex]))
                     {
-                        selectedMovies.Add(currentSearchPage[item.ItemIndex]);
+                        selectedMovies.Add(CurrentSearchPage[item.ItemIndex]);
                     }
                 }
 
@@ -36,6 +36,12 @@
         {
             get { return AppSession.Current.CurrentPage; }
             set { AppSession.Current.CurrentPage = value; }
+        }
+
+        private List<Movie> CurrentSearchPage
+        {
+            get { return AppSession.Current.CurrentSearchPage; }
+            set { AppSession.Current.CurrentSearchPage = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -87,7 +93,7 @@
 
         private void LoadPage(int page)
         {
-            currentPage = new SearchPage(txbMovieSearch.Text, page);
+            currentPage = new PageLoader(txbMovieSearch.Text, page);
             currentPage.Load(movieSearchResults);
         }
 

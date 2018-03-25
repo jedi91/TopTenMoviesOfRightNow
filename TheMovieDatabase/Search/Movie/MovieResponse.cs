@@ -1,19 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
-namespace TopTenMoviesOfRightNow.TheMovieDB.ApiResponse
+namespace TheMovieDatabase.Search.Movie
 {
-    public class SearchResponse
+    public class MovieResponse
     {
         public int page { get; set; }
-        public Result[] results { get; set; }
+        public Movie[] results { get; set; }
         public int total_results { get; set; }
         public int total_pages { get; set; }
+
+        public List<Movie> ResultList
+        {
+            get
+            {
+                List<Movie> movieList = new List<Movie>();
+                foreach (Movie result in results)
+                {
+                    movieList.Add(result);
+                }
+
+                return movieList;
+            }
+        }
     }
 
-    public class Result
+    public class Movie
     {
         public string poster_path { get; set; }
         public bool adult { get; set; }

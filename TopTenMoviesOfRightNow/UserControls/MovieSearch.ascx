@@ -26,12 +26,12 @@
                     <tr>
                         <td>
                             <asp:CheckBox ID="ckbChooseMovie" runat="server" />
-                            <asp:Label ID="lblTitle" Text='<%# DataBinder.Eval(Container.DataItem, "Title") %>' runat="server"></asp:Label>                 
+                            <asp:Label ID="lblTitle" Text='<%# DataBinder.Eval(Container.DataItem, "title") %>' runat="server"></asp:Label>                 
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Image ID="imgLogo" ImageUrl='<%# "https://image.tmdb.org/t/p/w154" + DataBinder.Eval(Container.DataItem, "ImagePath") %>' runat="server" />
+                            <asp:Image ID="imgLogo" ImageUrl='<%# "https://image.tmdb.org/t/p/w154" + DataBinder.Eval(Container.DataItem, "poster_path") %>' runat="server" />
                         </td>
                     </tr>
                 </ItemTemplate>

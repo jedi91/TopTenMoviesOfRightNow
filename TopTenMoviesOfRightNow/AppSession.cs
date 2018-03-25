@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 
-using TopTenMoviesOfRightNow.TheMovieDB;
+using TheMovieDatabase.Search.Movie;
 
 namespace TopTenMoviesOfRightNow
 {

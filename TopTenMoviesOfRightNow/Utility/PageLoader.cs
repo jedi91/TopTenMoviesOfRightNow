@@ -1,26 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Web.UI.WebControls;
 
-using TopTenMoviesOfRightNow.TheMovieDB.ApiResponse;
+using TheMovieDatabase.Search.Movie;
 
 namespace TopTenMoviesOfRightNow.TheMovieDB
 {
-    public class SearchPage
+    public class PageLoader
     {
-        private string requestUrl;
-        private List<Movie> searchResults;
+        private string requestUrl;    
+        private MovieSearch search;
 
-        public SearchPage(string query, int pageNumber)
+        public PageLoader(string query, int pageNumber)
         {
-            searchResults = new List<Movie>();
-
+            search = new MovieSearch();
             requestUrl = string.Format("{0}?api_key={1}&language=en-US&query={2}&page={3}&include_adult=false",
                 AppSettings.SearchUrl, AppSettings.MovieDatabaseApiKey, query, pageNumber.ToString());
         }
 
         public void Load(Repeater resultsRepeater)
         {
-            searchResults = GetSearchResults(); 
+            List<Movie> searchResults = GetSearchResults(); 
             AppSession.Current.CurrentSearchPage = searchResults;
             resultsRepeater.DataSource = searchResults;
             resultsRepeater.DataBind();
@@ -28,16 +27,8 @@ namespace TopTenMoviesOfRightNow.TheMovieDB
 
         private List<Movie> GetSearchResults()
         {
-            SearchRequest request = new SearchRequest(requestUrl);
-
-            List<Movie> movieList = new List<Movie>();
-            foreach (Result result in request.Response.results)
-            {
-                Movie movie = new Movie(result);
-                movieList.Add(movie);
-            }
-
-            return movieList;
+            MovieResponse response = search.Send(requestUrl);
+            return response.ResultList;
         }
     }
 }
