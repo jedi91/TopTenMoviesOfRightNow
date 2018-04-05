@@ -27,7 +27,7 @@ namespace TheMovieDatabaseTests
         {
             MovieRequest request = new MovieRequest(apiKey, validQuery);
             
-            for(int page = 1; page < 11; page++)
+            for(int page = 2; page < 11; page++)
             {
                 request.Page = page;
                 string requestUrl = request.Url();
