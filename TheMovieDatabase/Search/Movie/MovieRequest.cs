@@ -1,64 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheMovieDatabase.Search.Movie
+﻿namespace TheMovieDatabase.Search.Movie
 {
     public class MovieRequest
     {
-        private int page = 1;
-        private bool includeAdult = false;
-        private string language = "en-US";
+        private string apiKey;
+        private string query;
         private string baseUrl = "https://api.themoviedb.org/3/search/movie";
 
         public int? Year { get; set; }
+        public int? Page { get; set; }
         public int? PrimaryReleaseYear { get; set; }
-        public string ApiKey { get; set; }
-        public string Query { get; set; }
+        public bool? IncludeAdult { get; set; }
         public string Region { get; set; }
+        public string Language { get; set; }
 
-        public string Language
+        public MovieRequest(string apiKey, string query)
         {
-            get
-            {
-                return language;
-            }
-            set
-            {
-                language = value;
-            }
+            this.apiKey = apiKey;
+            this.query = query;
         }
 
-        public int Page
+        public string Url()
         {
-            get
-            {
-                return page;
-            }
-            set
-            {
-                page = value;
-            }
-        }
+            string requestUrl = string.Format("{0}?api_key={1}&query={2}",
+                baseUrl, apiKey, query);
 
-        public bool IncludeAdult
-        {
-            get
+            if (Page != null)
             {
-                return includeAdult;
+                requestUrl = string.Format("{0}&page={1}", requestUrl, Page);
             }
-            set
-            {
-                includeAdult = value;
-            }
-        }
 
-        public string RequestUrl()
-        {
-            string requestUrl = string.Format("{0}?api_key={1}&language={2}&query={3}&page={4}&include_adult={5}",
-                baseUrl, ApiKey, Language, Query, page, includeAdult);
+            if (IncludeAdult != null)
+            {
+                requestUrl = string.Format("{0}&include_adult={1}", requestUrl, IncludeAdult);
+            } 
+
+            if(!string.IsNullOrEmpty(Language))
+            {
+                requestUrl = string.Format("{0}&language={1}", requestUrl, Language);
+            }
 
             if (Year != null)
             {

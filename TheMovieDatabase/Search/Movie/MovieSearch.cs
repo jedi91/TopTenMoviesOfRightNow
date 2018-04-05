@@ -47,7 +47,7 @@ namespace TheMovieDatabase.Search.Movie
         {
             using (WebClient client = new WebClient())
             {
-                responseString = client.DownloadString(request.RequestUrl());
+                responseString = client.DownloadString(request.Url());
             }
 
             DeserializeResponse();

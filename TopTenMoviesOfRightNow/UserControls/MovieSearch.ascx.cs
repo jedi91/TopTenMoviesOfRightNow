@@ -69,9 +69,9 @@
 
         private void Search()
         {
-            MovieRequest request = new MovieRequest();
-            request.ApiKey = AppSettings.MovieDatabaseApiKey;
-            request.Query = txbMovieSearch.Text;
+            MovieRequest request = 
+                new MovieRequest(AppSettings.MovieDatabaseApiKey, 
+                    txbMovieSearch.Text);
 
             CurrentSearch = new TheMovieDatabase.Search.Movie.MovieSearch(request);
             currentSearchPage = CurrentSearch.CurrentPage().ResultList;
