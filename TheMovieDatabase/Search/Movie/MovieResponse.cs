@@ -5,16 +5,16 @@ namespace TheMovieDatabase.Search.Movie
     public class MovieResponse
     {
         public int page { get; set; }
-        public Movie[] results { get; set; }
+        public MovieResult[] results { get; set; }
         public int total_results { get; set; }
         public int total_pages { get; set; }
 
-        public List<Movie> ResultList
+        public List<MovieResult> ResultList
         {
             get
             {
-                List<Movie> movieList = new List<Movie>();
-                foreach (Movie result in results)
+                List<MovieResult> movieList = new List<MovieResult>();
+                foreach (MovieResult result in results)
                 {
                     movieList.Add(result);
                 }
@@ -24,7 +24,7 @@ namespace TheMovieDatabase.Search.Movie
         }
     }
 
-    public class Movie
+    public class MovieResult
     {
         public string poster_path { get; set; }
         public bool adult { get; set; }

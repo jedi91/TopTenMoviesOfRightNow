@@ -10,13 +10,13 @@
     {
         public event EventHandler AddMoviesToList;
 
-        private List<Movie> currentSearchPage;
+        private List<MovieResult> currentSearchPage;
 
-        public List<Movie> SelectedMovies
+        public List<MovieResult> SelectedMovies
         {
             get
             {
-                List<Movie> selectedMovies = AppSession.Current.SelectedMovies;
+                List<MovieResult> selectedMovies = AppSession.Current.SelectedMovies;
                 currentSearchPage = CurrentSearch.CurrentPage().ResultList;
 
                 foreach (RepeaterItem item in movieSearchResults.Items)

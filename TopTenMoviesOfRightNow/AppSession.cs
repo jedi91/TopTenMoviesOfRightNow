@@ -8,15 +8,15 @@ namespace TopTenMoviesOfRightNow
     public class AppSession
     {
         private int currentPage;
-        private List<Movie> selectedMovies;
-        private List<Movie> currentSearchPage;
+        private List<MovieResult> selectedMovies;
+        private List<MovieResult> currentSearchPage;
         private MovieSearch currentSearch;
 
         private AppSession()
         {
             currentPage = 1;
-            selectedMovies = new List<Movie>();
-            currentSearchPage = new List<Movie>();
+            selectedMovies = new List<MovieResult>();
+            currentSearchPage = new List<MovieResult>();
         }
 
         public static AppSession Current
@@ -34,7 +34,7 @@ namespace TopTenMoviesOfRightNow
             }
         }
 
-        public List<Movie> SelectedMovies
+        public List<MovieResult> SelectedMovies
         {
             get
             {

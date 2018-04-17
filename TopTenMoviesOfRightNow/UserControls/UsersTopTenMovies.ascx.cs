@@ -36,10 +36,10 @@ namespace TopTenMoviesOfRightNow.UserControls
 
         private void RemoveMovieByTitle(string title)
         {
-            List<Movie> selectedMovies = AppSession.Current.SelectedMovies;
-            List<Movie> tempList = new List<Movie>();
+            List<MovieResult> selectedMovies = AppSession.Current.SelectedMovies;
+            List<MovieResult> tempList = new List<MovieResult>();
 
-            foreach (Movie movie in selectedMovies)
+            foreach (MovieResult movie in selectedMovies)
             {
                 if (movie.title != title)
                     tempList.Add(movie);
