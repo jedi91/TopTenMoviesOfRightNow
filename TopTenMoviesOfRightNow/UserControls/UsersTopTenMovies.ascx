@@ -7,7 +7,8 @@
         <tr>
             <td>
                 <asp:Label ID="lblRank" Text='<%# Container.ItemIndex + 1%>' runat="server"></asp:Label>
-                <asp:Label ID="lblTitle" Text='<%# DataBinder.Eval(Container.DataItem, "Title") %>' runat="server"></asp:Label>   
+                <asp:Label ID="lblTitle" Text='<%# DataBinder.Eval(Container.DataItem, "Title") %>' runat="server"></asp:Label>  
+                <asp:Label ID="lblReleaseDate" Text='<%# DataBinder.Eval(Container.DataItem, "release_date") %>' runat="server"></asp:Label> 
                 <asp:LinkButton ID="btnRemove" runat="server" Text="Remove" OnClick="btnRemove_Click"></asp:LinkButton> 
           </td>
         </tr>

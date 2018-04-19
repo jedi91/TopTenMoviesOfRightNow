@@ -32,5 +32,28 @@ namespace AppCache
 
             return movie;
         }
+
+        public static Movie GetMovieByTitleAndRelease(string title, DateTime releaseDate)
+        {
+            string key = string.Format("Movie_{0}_{1}", title, releaseDate);
+            Movie movie = cache[key] as Movie;
+
+            if(movie == null)
+            {
+                using (TopTenRightNowContext context = new TopTenRightNowContext())
+                {
+                    movie = context.Movies.
+                        Where(m => m.Title == title && m.ReleaseDate == releaseDate).
+                        FirstOrDefault();
+                }
+
+                if (movie != null)
+                {
+                    cache[key] = movie;
+                }
+            }
+
+            return movie;
+        }
     }
 }

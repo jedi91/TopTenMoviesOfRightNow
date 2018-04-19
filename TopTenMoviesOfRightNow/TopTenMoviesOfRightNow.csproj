@@ -43,6 +43,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -143,6 +151,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cache\AppCache.csproj">
+      <Project>{b0a48d86-f785-4807-b98a-5e847754cdac}</Project>
+      <Name>AppCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseEntities\DatabaseEntities.csproj">
+      <Project>{e2ca04a8-0a77-41c1-9fe6-2cbca88946fb}</Project>
+      <Name>DatabaseEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TheMovieDatabase\TheMovieDatabase.csproj">
       <Project>{b10dcba2-a4fb-415c-8dcf-5ea442a8b399}</Project>
       <Name>TheMovieDatabase</Name>
