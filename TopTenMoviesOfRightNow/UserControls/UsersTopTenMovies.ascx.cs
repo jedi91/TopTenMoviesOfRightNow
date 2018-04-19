@@ -16,15 +16,6 @@ namespace TopTenMoviesOfRightNow.UserControls
 
         protected void btnSubmitTopTen_Click(object sender, EventArgs e)
         {
-            //WIP
-            //Next step: Add class to interface with AWS DynamoDB.
-            //The class will be used to submit the user's top ten
-            //and to retrieve the overall top ten, which will be
-            //passed to a new control to display the overall top ten.
-            //All other controls will be hidden. A resubmit list button
-            //will be made available that will allow the user to repeat
-            //the process after a certain amount of time has elapsed. 
-
             foreach(RepeaterItem item in rptTopTenMovies.Items)
             {
                 Label title = (Label)item.FindControl("lblTitle");
