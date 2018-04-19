@@ -37,7 +37,7 @@ namespace TopTenMoviesOfRightNow.UserControls
                     {
                         Title = title,
                         ReleaseDate = releaseDate,
-                        RankingWeight = 11 - rank,
+                        RankingWeight = WeightFromRank(rank),
                         LastRankedTime = DateTime.Now
                     };
 
@@ -47,13 +47,18 @@ namespace TopTenMoviesOfRightNow.UserControls
                 UserRanking ranking = new UserRanking()
                 {
                     MovieId = movie.MovieId,
-                    RankingWeight = 11 - rank,
+                    RankingWeight = WeightFromRank(rank),
                     RankedTime = DateTime.Now
                 };
 
                 context.UserRankings.Add(ranking);
                 context.SaveChanges();
             }
+        }
+
+        private int WeightFromRank(int rank)
+        {
+            return 11 - rank;
         }
 
         protected void btnRemove_Click(object sender, EventArgs e)
